@@ -176,20 +176,21 @@ contract CarMarket {
     /// @dev allow users to buy a Car on sale
     /// @notice current car owners can't buy their own car
     function buyCar(uint _index) external payable exist(_index) {
+        Car storage currentCar = cars[_index];
         require(
-            cars[_index].owner != msg.sender,
+            currentCar.owner != msg.sender,
             "You can't buy your own Cars"
         );
-        require(!cars[_index].sold, "Car isn't on sale");
+        require(!currentCar.sold, "Car isn't on sale");
         require(
             IERC20Token(cUsdTokenAddress).transferFrom(
                 msg.sender,
-                cars[_index].owner,
-                cars[_index].price
+                currentCar.owner,
+                currentCar.price
             ),
             "Transfer failed."
         );
-        cars[_index].owner = payable(msg.sender);
+        currentCar.owner = payable(msg.sender);
     }
 
     /// @dev allow cars' owners to remove a Car
@@ -210,7 +211,7 @@ contract CarMarket {
 
     /// @dev allow cars' owners to cancel a sale on a Car
     /// @notice callable only by the car owner
-    function removeCar(uint _index)
+    function cancelSale(uint _index)
         public
         exist(_index)
         checkIfCarOwner(_index)
