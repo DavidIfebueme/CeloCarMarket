@@ -93,7 +93,7 @@ function renderCars() {
 
 function carTemplate(_car) {
 	return `
-    <div class="card mb-4">
+    <div class="card mb-3">
       <img class="card-img-top" src="${_car.image}" alt="...">
       <div class="card-body text-left p-4 position-relative">
         <div class="translate-middle-y position-absolute top-0">
@@ -103,6 +103,7 @@ function carTemplate(_car) {
         <p class="card-text mb-4" style="min-height: 82px">
           ${_car.description}             
         </p>
+		<p class="card-text">Price: ${_car.price.shiftedBy(-ERC20_DECIMALS).toFixed(2)} cUSD<p>
         <p class="card-text mt-4">
           <i class="bi bi-geo-alt-fill"></i>
           <span>${_car.location}</span>
@@ -110,7 +111,7 @@ function carTemplate(_car) {
         ${
 			_car.owner === kit.defaultAccount && _car.sold === false
 				? `<div class="d-grid gap-2">
-        <a class="btn btn-lg btn-outline-dark cancelSaleBtn fs-6 p-3"  id=${_car.index} >
+        <a class="btn btn-lg btn-outline-cancel cancelSaleBtn fs-6 p-3"  id=${_car.index} >
           Cancel Sale 
         </a>
       </div>`
