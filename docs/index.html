@@ -23,6 +23,27 @@
     />
 
     <style>
+        .btn-outline-cancel {
+	      color: #f80000;
+	      border-color: #f80000 !important
+        }
+
+        .btn-outline-cancel:hover {
+	      color: #fff;
+	      background-color: #f80000;
+	      border-color: #f80000 !important
+        }
+
+        .alert-warning {
+	      color: #664d03;
+	      background-color: greenyellow;
+	      border-color: greenyellow !important
+}
+
+
+    </style>
+
+    <style>
 
         /* GLOBAL STYLES */
        body {
@@ -33,11 +54,18 @@
          }
          
          /* DEMO-SPECIFIC STYLES */
+         .container {
+          display: flex;
+          }
+          .center {
+            margin: auto; 
+          } 
+
          .typewriter h1 {
-           color: #fff;
+           color: whitesmoke;
            font-family: monospace;
            overflow: hidden; /* Ensures the content is not revealed until the animation */
-           border-right: .15em solid orange; /* The typwriter cursor */
+           border-right: .15em solid white; /* The typwriter cursor */
            white-space: nowrap; /* Keeps the content on a single line */
            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
            letter-spacing: .15em; /* Adjust as needed */
@@ -55,7 +83,7 @@
          /* The typewriter cursor effect */
          @keyframes blink-caret {
            from, to { border-color: transparent }
-           50% { border-color: orange }
+           50% { border-color: greenyellow }
          }
    
          .form-control-x {
@@ -77,11 +105,11 @@
          }
    
      .rounded-pill:hover{
-       background-color: rgb(255, 165, 0);
+       background-color: greenyellow;
      }
    
      .btn-dark:hover{
-       background-color: rgb(255, 165, 0);
+       background-color: greenyellow;
      }
    
     </style>
@@ -96,7 +124,7 @@
           border: 0;
           box-shadow: rgb(0 0 0 / 5%) 0px 10px 20px;
           border-radius: 10px;
-          background-color: lightgray;
+          background-color: darkgray;
         }
 
         .card-img-top {
@@ -106,9 +134,11 @@
         }
 
         .card-body:hover {
-          background-color: #fff3cd;
-          color: #664d03;
+          background-color: greenyellow;
+          color: black; 
         }
+
+        
       }
     </style>
 
@@ -116,13 +146,13 @@
     <title>Celo Car Market</title>
   </head>
   <body>
-    <div>
+    <div class="container-fluid">
       <div class="typewriter">       
-          <span>
-            <h1>THE CELO CAR MARKET.</h1>
+          <span class="center">
+            <h1 class="text-center">THE CELO CAR MARKET.</h1>
           </span>   
-        <span class="nav-link border rounded-pill bg-light">
-          <span id="balance">0</span>
+        <span class="border rounded-pill bg-light">
+          <span id="balance" class="text-center">0</span>
           cUSD
         </span>
       </div>
@@ -170,7 +200,7 @@
                     type="text"
                     id="newCarName"
                     class="form-control mb-2"
-                    placeholder="Enter brand of Car(Kia, Porsche, Lexus, ...)"
+                    placeholder="Enter brand of Car"
                   />
                 </div>
                 <div class="col">
