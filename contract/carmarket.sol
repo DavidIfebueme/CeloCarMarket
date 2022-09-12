@@ -191,6 +191,7 @@ contract CarMarket {
             "Transfer failed."
         );
         currentCar.owner = payable(msg.sender);
+        currentCar.sold = true;
     }
 
     /// @dev allow cars' owners to remove a Car

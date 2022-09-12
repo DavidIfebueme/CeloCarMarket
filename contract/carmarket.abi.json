@@ -3,6 +3,11 @@
 		"inputs": [
 			{
 				"internalType": "string",
+				"name": "_registrationPlate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_name",
 				"type": "string"
 			},
@@ -55,7 +60,20 @@
 		],
 		"name": "cancelSale",
 		"outputs": [],
-		"stateMutability": "payable",
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "removeCar",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -78,7 +96,7 @@
 		],
 		"name": "upgradeCar",
 		"outputs": [],
-		"stateMutability": "payable",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -97,6 +115,11 @@
 						"internalType": "address payable",
 						"name": "owner",
 						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "registrationPlate",
+						"type": "string"
 					},
 					{
 						"internalType": "string",

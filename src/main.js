@@ -5,7 +5,7 @@ import carmarketAbi from "../contract/carmarket.abi.json";
 import erc20Abi from "../contract/erc20.abi.json";
 
 const ERC20_DECIMALS = 18;
-const MPContractAddress = "0x10258DcAdBeef6740c148BF4c6d2520Fcee64bbc";
+const MPContractAddress = "0xE9266e2f582CC460124687Ef73ee914740d1D8AC";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 let kit;
@@ -67,12 +67,13 @@ const getCars = async function () {
 			resolve({
 				index: i,
 				owner: p[0],
-				name: p[1],
-				image: p[2],
-				description: p[3],
-				location: p[4],
-				price: new BigNumber(p[5]),
-				sold: p[6],
+				registrationPlate: p[1],
+				name: p[2],
+				image: p[3],
+				description: p[4],
+				location: p[5],
+				price: new BigNumber(p[6]),
+				sold: p[7],
 			});
 		});
 		_cars.push(_car);
@@ -172,6 +173,7 @@ window.addEventListener("load", async () => {
 
 document.querySelector("#newCarBtn").addEventListener("click", async (e) => {
 	const params = [
+		document.getElementById("newRegistrationPlate").value,
 		document.getElementById("newCarName").value,
 		document.getElementById("newImgUrl").value,
 		document.getElementById("newCarDescription").value,
